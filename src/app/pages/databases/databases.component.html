@@ -1,6 +1,9 @@
 <div *ngIf="containers.length > 0">
-  <div *ngFor="let c of containers">
-    <p>{{c.containerId}}: {{c.containerName}}</p>
+  <div *ngFor="let c of containers" class="flex flex-row">
+    <p>{{c.containerId}}:</p>
+    <div *ngIf="c.status.startsWith('Up')" class="bg-green-500 w-5 h-5"></div>
+    <div *ngIf="c.status.startsWith('Exited')" class="bg-red-500 w-5 h-5"></div>
+    <p>{{c.containerName}}</p>
   </div>
 </div>
 
