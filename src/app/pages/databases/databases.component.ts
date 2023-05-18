@@ -22,8 +22,8 @@ export class DatabasesComponent implements OnInit {
   }
 
   private renderContainers() {
+    this.containers = [];
     this.databaseService.listDatabases().subscribe(res => {
-      this.containers = [];
       res.forEach(d => { this.containers.push(d) })
     });
   }
