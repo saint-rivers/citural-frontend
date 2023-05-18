@@ -1,0 +1,17 @@
+<div *ngIf="containers.length > 0">
+  <div *ngFor="let c of containers">
+    <p>{{c.containerId}}: {{c.containerName}}</p>
+  </div>
+</div>
+
+
+<button (click)="create()">Create</button>
+<div>
+  <label for="container-id">Container Name</label>
+  <input type="text" id="container-id" placeholder="ec6b003bf72c27ac555482f1bf122bf2e6981070f073d8218962582de20d2e03"
+    [formControl]="containerId">
+</div>
+<div class="flex flex-col">
+  <button (click)="stop()">Stop</button>
+  <button (click)="start()">Start</button>
+</div>

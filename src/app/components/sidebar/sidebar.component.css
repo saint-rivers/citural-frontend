@@ -1,0 +1,7 @@
+.sidebar {
+  @apply bg-gray-300 h-[100vh] p-2;
+}
+
+a {
+  @apply p-2 bg-gray-100 rounded-lg;
+}
