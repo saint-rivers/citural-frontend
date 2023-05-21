@@ -25,6 +25,8 @@ export class DatabaseService {
   }
 
   startDatabase(containerId: string) {
+    console.log(containerId);
+    
     return this.http.put(`${apiUrl}/api/v1/services?status=up&container=${containerId}`, {});
   }
 }

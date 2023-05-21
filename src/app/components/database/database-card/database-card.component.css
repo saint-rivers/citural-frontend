@@ -1,0 +1,36 @@
+.status-indicator {
+  @apply w-[8px] rounded-l;
+}
+
+p {
+  @apply pb-1 pl-2;
+}
+
+.card-menu {
+  @apply bg-gray-300 w-[70vw] rounded-2xl mb-4;
+  @apply flex flex-row;
+}
+
+.card {
+  @apply flex flex-row w-72 h-24;
+  /* @apply bg-opacity-50 backdrop-blur-md drop-shadow-md; */
+  @apply cursor-pointer rounded-2xl;
+  @apply hover:bg-white hover:backdrop-blur-none;
+}
+
+.card-active {
+  @apply border-2 border-green-500 bg-white;
+  @apply hover:bg-slate-50 hover:drop-shadow;
+}
+
+.card-inactive {
+  @apply border-2 border-gray-300 bg-slate-50 bg-opacity-90;
+}
+
+button {
+  @apply px-4 my-2 rounded-lg hover:bg-gray-100;
+}
+
+.menu-section {
+  @apply pl-12;
+}

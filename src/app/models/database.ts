@@ -6,3 +6,4 @@ export interface DatabaseRequest {
     password: string;
     port: number;
 }
+

@@ -3,12 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { SidebarComponent } from './components/core/sidebar/sidebar.component';
 import { DatabasesComponent } from './pages/databases/databases.component';
 import { HttpClientModule } from '@angular/common/http';
-import { LoginButtonComponent } from './components/login-button/login-button.component';
+import { LoginButtonComponent } from './components/auth/login-button/login-button.component';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DatabaseCardComponent } from './components/database/database-card/database-card.component';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -36,7 +37,8 @@ function initializeKeycloak(keycloak: KeycloakService) {
     AppComponent,
     SidebarComponent,
     DatabasesComponent,
-    LoginButtonComponent
+    LoginButtonComponent,
+    DatabaseCardComponent
   ],
   imports: [
     HttpClientModule,

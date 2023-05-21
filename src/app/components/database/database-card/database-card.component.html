@@ -1,0 +1,29 @@
+<div *ngIf="database !== null" class="w-full card-menu">
+  <!-- <div *ngIf="database.status.startsWith('Up')" class="bg-green-500 w-5 h-5"></div>
+  <div *ngIf="database.status.startsWith('Exited')" class="bg-red-500 w-5 h-5"></div> -->
+
+  <div *ngIf="database.status.startsWith('Exited')" class="card card-inactive">
+    <p class="pt-3 text-slate-500">{{database.containerName}}</p>
+  </div>
+
+  <div *ngIf="database.status.startsWith('Up')" class="card card-active">
+    <div class="flex flex-col">
+      <p class="pt-3">{{database.containerName}}</p>
+      <p class="text-gray-500" *ngIf="database.ports.length > 0">Ports:
+        <span *ngFor="let d of database.ports; let i = index" [attr.data-index]="i">
+          <span *ngIf="i !== database.ports.length - 1">
+            {{d.PublicPort}},
+          </span>
+          <span *ngIf="i === database.ports.length - 1">
+            {{d.PublicPort}}
+          </span>
+        </span>
+      </p>
+    </div>
+  </div>
+
+  <div class="flex flex-row menu-section">
+    <button (click)="stop()">Stop</button>
+    <button (click)="start()">Start</button>
+  </div>
+</div>

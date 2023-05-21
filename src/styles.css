@@ -3,3 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  @apply bg-slate-100;
+  /* background-image: url(./app/images/white-background-pattern-1.jpg); */
+  /* background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; */
+}
