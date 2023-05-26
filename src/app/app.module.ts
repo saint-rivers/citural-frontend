@@ -10,6 +10,8 @@ import { LoginButtonComponent } from './components/auth/login-button/login-butto
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DatabaseCardComponent } from './components/database/database-card/database-card.component';
+import { StoreModule } from '@ngrx/store';
+import { containerReducer } from './models/actions/container.reducer';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -44,7 +46,8 @@ function initializeKeycloak(keycloak: KeycloakService) {
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
-    KeycloakAngularModule, ReactiveFormsModule
+    KeycloakAngularModule, ReactiveFormsModule, StoreModule.forRoot({}, {}),
+    StoreModule.forRoot({ containers: containerReducer })
   ],
   providers: [{
     provide: APP_INITIALIZER,

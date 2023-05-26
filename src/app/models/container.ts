@@ -1,3 +1,7 @@
+export interface ContainerList {
+    containers: ContainerResponse[]
+}
+
 export interface ContainerResponse {
     containerName: string[];
     containerId: string;
