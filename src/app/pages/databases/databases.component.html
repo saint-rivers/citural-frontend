@@ -1,5 +1,20 @@
-<div *ngIf="[containers$ | async].length > 0" class="mt-6 mx-8">
-  <div *ngFor="let container of (containers$ | async)" class="flex flex-row gap-4">
-    <app-database-card [database]="container"></app-database-card>
-  </div>
-</div>
+<table *ngIf="[containers$ | async].length > 0" class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+  <thead class="bg-gray-50 dark:bg-gray-800">
+    <tr>
+      <th>Service</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody class="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
+    <tr *ngFor="let container of (containers$ | async)">
+      <td class="flex flex-row items-center">
+        <div *ngIf="container.status.startsWith('Up')" class="bg-green-500 rounded-full w-4 h-4"></div>
+        <div *ngIf="container.status.startsWith('Exited')"
+          class="bg-gray-50 border border-gray-400 rounded-full w-4 h-4">
+        </div>
+        <p class="ml-2">{{container.containerName}}</p>
+      </td>
+      <td>{{container.status}}</td>
+    </tr>
+  </tbody>
+</table>

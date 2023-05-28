@@ -3,7 +3,7 @@
 }
 
 p {
-  @apply pb-1 pl-2;
+ /* @apply pb-1 pl-2;*/
 }
 
 .card-menu {

@@ -44,7 +44,7 @@ export class DatabaseCardComponent {
     }
   }
 
-  refetchContainers() {
+  private refetchContainers() {
     this.databaseService.listDatabases().subscribe((res) => {
       this.store.dispatch(setContainers({ containers: res }))
     })
