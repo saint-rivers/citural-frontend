@@ -1,0 +1,45 @@
+<div class="flex flex-col">
+  <div class="flex flex-row justify-end mb-4">
+    <a class="bg-white hover:bg-gray-200 py-1 w-16 text-center rounded-xl drop-shadow"
+      [routerLink]="['/databases']">Back</a>
+  </div>
+
+  <div class="flex flex-row gap-2 mb-2">
+    <button (click)="selectVendor('postgres')">Postgres</button>
+    <button (click)="selectVendor('mongodb')">MongoDB</button>
+  </div>
+
+  <div class="flex flex-row gap-2 items-center ml-3">
+    <p>Configurations: </p>
+    <button>Test</button>
+    <button>Random</button>
+  </div>
+  <br>
+
+  <form [formGroup]="container" class="bg-white rounded-xl p-4" (submit)="create()">
+    <h1>Create Database</h1>
+
+    <div class=" grid grid-cols-3">
+      <label for="container-name">Name</label>
+      <input type="text" id="container-name" formControlName="containerName">
+
+      <label for="container-vendor">vendor</label>
+      <p class="col-span-2">{{selectedVendor}}</p>
+
+      <label for="container-default-db">Default Database</label>
+      <input type="text" id="container-default-db" formControlName="defaultDatabase">
+
+      <label for="container-username">Username</label>
+      <input type="text" id="container-username" formControlName="username">
+
+      <label for="container-password">Password</label>
+      <input type="text" id="container-password" formControlName="password">
+
+      <label for="container-port">Port</label>
+      <input type="number" id="container-port" formControlName="port">
+    </div>
+
+    <input type="submit" value="Create" class="w-full py-1 my-1 rounded">
+  </form>
+
+</div>

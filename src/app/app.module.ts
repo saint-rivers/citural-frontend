@@ -1,7 +1,7 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { IconModule, IconSetService } from '@coreui/icons-angular';
+import { IconModule } from '@coreui/icons-angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './components/core/sidebar/sidebar.component';
@@ -13,27 +13,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { containerReducer } from './models/actions/container.reducer';
 import { NavbarComponent } from './components/core/navbar/navbar.component';
-
-function initializeKeycloak(keycloak: KeycloakService) {
-  return () =>
-    keycloak.init({
-      config: {
-        url: 'http://localhost:8800',
-        realm: 'citural',
-        clientId: 'citural-frontend',
-      },
-      initOptions: {
-        onLoad: 'check-sso',
-        // redirectUri: 'https://youtube.com',
-        silentCheckSsoRedirectUri:
-          window.location.origin + '/assets/silent-check-sso.html',
-      },
-      shouldAddToken: (request) => {
-        const { method, url } = request;
-        return url.includes('/api/v1/services');// && method.toUpperCase() === 'GET';
-      },
-    });
-}
+import { DbTemplatesComponent } from './pages/databaseManagement/db-templates/db-templates.component';
+import { initializeKeycloak } from './config/keycloak';
 
 @NgModule({
   declarations: [
@@ -41,7 +22,8 @@ function initializeKeycloak(keycloak: KeycloakService) {
     SidebarComponent,
     DatabasesComponent,
     LoginButtonComponent,
-    NavbarComponent
+    NavbarComponent,
+    DbTemplatesComponent
   ],
   imports: [
     HttpClientModule,

@@ -1,6 +1,6 @@
 export interface DatabaseRequest {
     containerName: string;
-    vendor: 'postgres';
+    vendor: 'postgres' | 'mongodb';
     defaultDatabase: string;
     username: string;
     password: string;

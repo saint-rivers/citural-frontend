@@ -26,17 +26,6 @@ export class DatabasesComponent {
     })
   }
 
-  create() {
-    const request: DatabaseRequest = {
-      containerName: "testing1",
-      vendor: "postgres",
-      defaultDatabase: "tester",
-      username: "postgres",
-      password: "password",
-      port: 9494,
-    }
-    this.databaseService.createDatabase(request).subscribe();
-  }
 
   start(id: string) {
     if (id !== null && id !== "") {

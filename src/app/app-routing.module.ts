@@ -1,15 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DbTemplatesComponent } from './pages/databaseManagement/db-templates/db-templates.component';
 import { DatabasesComponent } from './pages/databases/databases.component';
-import { KeycloakService } from 'keycloak-angular';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: "databases",
-    component: DatabasesComponent
+    title: 'Databases',
+    component: DatabasesComponent,
+  },
+  {
+    path: "databases/template",
+    title: 'Databases',
+    component: DbTemplatesComponent,
   }
 ];
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

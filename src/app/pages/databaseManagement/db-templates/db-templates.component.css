@@ -1,0 +1,13 @@
+button {
+  @apply cursor-pointer bg-white hover:bg-gray-300 py-1 w-1/12 rounded-lg;
+  @apply border border-gray-300 text-gray-700;
+}
+
+input[type="text"],
+input[type="number"] {
+  @apply bg-gray-100 col-span-2;
+}
+
+input[type="submit"] {
+  @apply hover:bg-green-300;
+}

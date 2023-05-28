@@ -10,3 +10,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover; */
 }
+
+input[type="submit"] {
+  @apply cursor-pointer;
+}
