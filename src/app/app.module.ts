@@ -1,6 +1,7 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { IconModule, IconSetService } from '@coreui/icons-angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './components/core/sidebar/sidebar.component';
@@ -9,9 +10,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginButtonComponent } from './components/auth/login-button/login-button.component';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { ReactiveFormsModule } from '@angular/forms';
-import { DatabaseCardComponent } from './components/database/database-card/database-card.component';
 import { StoreModule } from '@ngrx/store';
 import { containerReducer } from './models/actions/container.reducer';
+import { NavbarComponent } from './components/core/navbar/navbar.component';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -40,14 +41,16 @@ function initializeKeycloak(keycloak: KeycloakService) {
     SidebarComponent,
     DatabasesComponent,
     LoginButtonComponent,
-    DatabaseCardComponent
+    NavbarComponent
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
+
     KeycloakAngularModule, ReactiveFormsModule, StoreModule.forRoot({}, {}),
-    StoreModule.forRoot({ containers: containerReducer })
+    StoreModule.forRoot({ containers: containerReducer }),
+    IconModule
   ],
   providers: [{
     provide: APP_INITIALIZER,

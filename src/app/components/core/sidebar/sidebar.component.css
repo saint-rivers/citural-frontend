@@ -1,7 +1,10 @@
-.sidebar {
-  @apply bg-gray-300 h-[100vh] p-2;
+
+.link-container > a {
+  @apply p-2 rounded-lg hover:bg-gray-100;
+  @apply flex flex-row items-center;
 }
 
-a {
-  @apply p-2 bg-gray-100 rounded-lg;
+.link-container > a > span {
+  @apply ml-2;
+  @apply text-center;
 }

@@ -1,4 +1,5 @@
 button {
-  @apply cursor-pointer hover:bg-gray-300 py-1 w-48 rounded;
+  @apply cursor-pointer hover:bg-gray-300 py-1 w-16 rounded;
   @apply border border-gray-300 text-gray-700;
 }
+

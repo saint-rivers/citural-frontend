@@ -38,26 +38,32 @@ export class DatabasesComponent {
     this.databaseService.createDatabase(request).subscribe();
   }
 
-  // start() {
-  //   if (this.containerId.value !== null && this.containerId.value !== "") {
-  //     this.databaseService.startDatabase(this.containerId.value).subscribe(() => {
-  //       this.renderContainers()
-  //     });
-  //   }
-  //   else {
-  //     console.log("container ID is null");
-  //   }
-  // }
+  start(id: string) {
+    if (id !== null && id !== "") {
+      this.databaseService.startDatabase(id).subscribe(() => {
+        this.refetchContainers()
+      })
+    }
+    else {
+      console.log("container ID is null");
+    }
+  }
 
-  // stop() {
-  //   if (this.containerId.value !== null && this.containerId.value !== "") {
-  //     console.log(this.containerId.value);
-  //     this.databaseService.stopDatabase(this.containerId.value).subscribe(() => {
-  //       this.renderContainers()
-  //     });
-  //   }
-  //   else {
-  //     console.log("container ID is null");
-  //   }
-  // }
+  stop(id: string) {
+    if (id !== null && id !== "") {
+      this.databaseService.stopDatabase(id).subscribe(() => {
+        this.refetchContainers()
+      })
+    }
+    else {
+      console.log("container ID is null");
+    }
+  }
+
+  private refetchContainers() {
+    this.databaseService.listDatabases().subscribe((res) => {
+      this.store.dispatch(setContainers({ containers: res }))
+    })
+  }
+
 }

@@ -1,8 +1,10 @@
-<table *ngIf="[containers$ | async].length > 0" class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+<table *ngIf="[containers$ | async].length > 0"
+  class="divide-y divide-gray-200 dark:divide-gray-700 drop-shadow rounded w-full">
   <thead class="bg-gray-50 dark:bg-gray-800">
     <tr>
       <th>Service</th>
       <th>Status</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody class="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
@@ -15,6 +17,10 @@
         <p class="ml-2">{{container.containerName}}</p>
       </td>
       <td>{{container.status}}</td>
+      <td>
+        <button (click)="start(container.containerId)">Start</button>
+        <button (click)="stop(container.containerId)">Stop</button>
+      </td>
     </tr>
   </tbody>
 </table>
