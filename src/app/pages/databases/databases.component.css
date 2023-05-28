@@ -3,3 +3,18 @@ button {
   @apply border border-gray-300 text-gray-700;
 }
 
+td {
+  /* @apply flex flex-row; */
+}
+
+.active-status {
+  @apply w-4 h-4 rounded-full cursor-pointer;
+  @apply border-2;
+  @apply bg-green-500 border-green-500;
+}
+
+.inactive-status {
+  @apply w-4 h-4 rounded-full cursor-pointer;
+  @apply border-2 border-gray-400 hover:border-green-200;
+  @apply bg-gray-50 hover:bg-green-200;
+}
