@@ -5,9 +5,13 @@ button {
 
 input[type="text"],
 input[type="number"] {
-  @apply bg-gray-100 col-span-2;
+  @apply bg-gray-100 col-span-2 outline-none hover:bg-green-100;
 }
 
 input[type="submit"] {
-  @apply hover:bg-green-300;
+  @apply hover:bg-green-300 w-full py-1 my-1 rounded border-green-400 border;
+}
+
+h1 {
+  @apply text-xl mb-2;
 }

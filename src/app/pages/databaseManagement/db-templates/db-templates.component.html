@@ -9,22 +9,22 @@
     <button (click)="selectVendor('mongodb')">MongoDB</button>
   </div>
 
-  <div class="flex flex-row gap-2 items-center ml-3">
-    <p>Configurations: </p>
-    <button>Test</button>
-    <button>Random</button>
-  </div>
   <br>
 
   <form [formGroup]="container" class="bg-white rounded-xl p-4" (submit)="create()">
     <h1>Create Database</h1>
 
-    <div class=" grid grid-cols-3">
+    <div class="flex flex-row gap-2 items-center mb-8">
+      <p>Profiles: </p>
+      <button (click)="setProfile('default')">Default</button>
+      <button (click)="setProfile('random')">Random</button>
+      <button (click)="clearProfile()">Blank</button>
+      <!-- <button (click)="setProfile('custom')">Custom</button> -->
+    </div>
+
+    <div class=" grid grid-cols-3 gap-1">
       <label for="container-name">Name</label>
       <input type="text" id="container-name" formControlName="containerName">
-
-      <label for="container-vendor">vendor</label>
-      <p class="col-span-2">{{selectedVendor}}</p>
 
       <label for="container-default-db">Default Database</label>
       <input type="text" id="container-default-db" formControlName="defaultDatabase">
@@ -39,7 +39,7 @@
       <input type="number" id="container-port" formControlName="port">
     </div>
 
-    <input type="submit" value="Create" class="w-full py-1 my-1 rounded">
+    <input type="submit" value="Create">
   </form>
 
 </div>
