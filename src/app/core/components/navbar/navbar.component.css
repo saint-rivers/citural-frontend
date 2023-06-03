@@ -1,0 +1,4 @@
+a {
+  @apply border border-green-400 p-2 rounded-lg w-1/6 text-center;
+  @apply hover:bg-green-200 text-green-600;
+}

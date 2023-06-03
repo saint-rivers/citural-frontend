@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { DatabaseRequest } from 'src/app/modules/database/models/database';
-import { DatabaseService } from 'src/app/modules/database/services/database/database.service';
 
 import { cilStorage, cilLan } from '@coreui/icons';
+import { Store } from '@ngrx/store';
+import { setNavbar } from '../../models/action/navbar.action';
+import { Observable } from 'rxjs';
+import { NavbarLink } from '../../models/navbar-link.model';
 
 @Component({
   selector: 'app-sidebar',
@@ -11,4 +13,50 @@ import { cilStorage, cilLan } from '@coreui/icons';
 })
 export class SidebarComponent {
   icons = { cilLan, cilStorage };
+  navbarLinks: Observable<NavbarLink[]> = new Observable()
+  constructor(private store: Store<{ links: NavbarLink[] }>) { }
+
+  ngOnInit(): void {
+    // this.loadNavbar()
+    this.navbarLinks = this.store.select('links')
+  }
+
+  loadNavbar(module: 'tinker' | 'mock') {
+    switch (module) {
+      case 'mock': {
+        this.dispatchMockNavbar()
+        break;
+      }
+      case 'tinker': {
+        this.dispatchTinkerNavbar();
+        break;
+      }
+    }
+  }
+
+  dispatchMockNavbar() {
+    this.store.dispatch(setNavbar({
+      links: [
+        {
+          path: '/mock/projects',
+          name: 'Projects'
+        }
+      ]
+    }))
+  }
+
+  dispatchTinkerNavbar() {
+    this.store.dispatch(setNavbar({
+      links: [
+        {
+          path: '/containers/databases/listing',
+          name: 'Databases'
+        },
+        {
+          path: '/containers/api/listing',
+          name: 'API'
+        },
+      ]
+    }))
+  }
 }

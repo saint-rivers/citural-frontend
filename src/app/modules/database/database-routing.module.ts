@@ -6,12 +6,12 @@ import { DbTemplatesComponent } from './pages/db-templates/db-templates.componen
 
 export const routes: Routes = [
   {
-    path: "listing",
+    path: "databases/listing",
     title: 'Databases',
     component: DatabasesComponent,
   },
   {
-    path: "template",
+    path: "databases/template",
     title: 'Databases',
     component: DbTemplatesComponent
   }

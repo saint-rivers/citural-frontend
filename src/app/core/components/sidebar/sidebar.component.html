@@ -1,14 +1,13 @@
 <div class="flex flex-col justify-between relative min-h-full p-4 bg-white">
   <div class="flex flex-col link-container">
     <div class="bg-gray-300 w-full h-24 mb-4">logo</div>
-    <a routerLink="/databases/listing">
+    <!-- <a routerLink="/databases/listing">
       <svg [cIcon]="icons.cilStorage" width="18" title="Shield Icon"></svg>
       <span>Databases</span>
     </a>
-    <a routerLink="/api">
-      <svg [cIcon]="icons.cilLan" width="18" title="Lan Icon"></svg>
-      <span>API</span>
-    </a>
+    -->
+    <button routerLink="/containers/databases/listing" (click)="loadNavbar('tinker')">Containers</button>
+    <button routerLink="/mock/projects" (click)="loadNavbar('mock')">Mock</button>
   </div>
   <app-login-button></app-login-button>
 </div>

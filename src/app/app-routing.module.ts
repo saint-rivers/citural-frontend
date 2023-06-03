@@ -5,7 +5,7 @@ import { NotFoundComponent } from './core/components/not-found/not-found.compone
 
 export const routes: Routes = [
   {
-    path: 'databases',
+    path: 'containers',
     loadChildren: () => import('./modules/database/database.module').then(m => m.DatabaseModule)
   },
   {

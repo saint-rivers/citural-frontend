@@ -12,6 +12,7 @@ import { initializeKeycloak } from './config/keycloak';
 import { AuthModule } from './modules/auth/auth.module';
 import { DatabaseModule } from './modules/database/database.module';
 import { CoreModule } from './core/core.module';
+import { navbarReducer } from './core/reducer/navbar.reducer';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { CoreModule } from './core/core.module';
     CoreModule,
 
     KeycloakAngularModule, ReactiveFormsModule, StoreModule.forRoot({}, {}),
-    StoreModule.forRoot({ containers: containerReducer }),
+    StoreModule.forRoot({ containers: containerReducer, links: navbarReducer }),
   ],
   providers: [{
     provide: APP_INITIALIZER,

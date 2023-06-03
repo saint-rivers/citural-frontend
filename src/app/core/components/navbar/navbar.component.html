@@ -1,3 +1,11 @@
-<div class="px-12 py-4">
-  <h1>Databases</h1>
+<div class="px-4 py-4 bg-white m-4 rounded-xl flex flex-row gap-2">
+
+  <div *ngIf="links$ != null && [links$ | async].length > 0" class="w-full">
+    <div *ngFor="let data of [links$ | async]" class="flex flex-row gap-2">
+      <a *ngFor="let l of data.links" [routerLink]="[l.path]">
+        {{l.name}}
+      </a>
+    </div>
+  </div>
+
 </div>
