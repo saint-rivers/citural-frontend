@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/internal/Observable';
-import { setContainers } from 'src/app/models/actions/container.actions';
-import { ContainerResponse } from 'src/app/models/container';
-import { DatabaseRequest } from 'src/app/models/database';
-import { DatabaseService } from 'src/app/services/database/database.service';
+import { setContainers } from 'src/app/modules/database/models/actions/container.actions';
+import { ContainerResponse } from 'src/app/modules/database/models/container';
+import { DatabaseRequest } from 'src/app/modules/database/models/database';
+import { DatabaseService } from 'src/app/modules/database/services/database/database.service';
 
 @Component({
   selector: 'app-databases',

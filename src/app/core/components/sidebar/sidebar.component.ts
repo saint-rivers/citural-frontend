@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { DatabaseRequest } from 'src/app/models/database';
-import { DatabaseService } from 'src/app/services/database/database.service';
+import { DatabaseRequest } from 'src/app/modules/database/models/database';
+import { DatabaseService } from 'src/app/modules/database/services/database/database.service';
 
 import { cilStorage, cilLan } from '@coreui/icons';
 

@@ -1,20 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DbTemplatesComponent } from './pages/databaseManagement/db-templates/db-templates.component';
-import { DatabasesComponent } from './pages/databases/databases.component';
+import { NotFoundComponent } from './core/components/not-found/not-found.component';
+
 
 export const routes: Routes = [
   {
-    path: "databases",
-    title: 'Databases',
-    component: DatabasesComponent,
+    path: 'databases',
+    loadChildren: () => import('./modules/database/database.module').then(m => m.DatabaseModule)
   },
   {
-    path: "databases/template",
-    title: 'Databases',
-    component: DbTemplatesComponent,
+    path: "**",
+    component: NotFoundComponent
   }
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

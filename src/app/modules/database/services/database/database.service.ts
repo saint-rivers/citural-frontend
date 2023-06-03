@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
-import { DatabaseRequest } from 'src/app/models/database';
+import { DatabaseRequest } from 'src/app/modules/database/models/database';
 import { apiUrl } from 'src/environment/env';
 import { Observable } from 'rxjs';
-import { ContainerResponse } from 'src/app/models/container';
+import { ContainerResponse } from 'src/app/modules/database/models/container';
 
 @Injectable({
   providedIn: 'root'
