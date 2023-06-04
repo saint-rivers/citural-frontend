@@ -10,7 +10,7 @@ import { NavbarLink } from './core/models/navbar-link.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  // title = 'citural-frontend';
+  title = 'citural-frontend';
   // navbarLinks: Observable<NavbarLink[]> | null = null
 
   // constructor(private store: Store<{ links: NavbarLink[] }>) { }

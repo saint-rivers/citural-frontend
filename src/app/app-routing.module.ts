@@ -6,11 +6,11 @@ import { NotFoundComponent } from './core/components/not-found/not-found.compone
 export const routes: Routes = [
   {
     path: 'containers',
-    loadChildren: () => import('./modules/database/database.module').then(m => m.DatabaseModule)
+    loadChildren: () => import('@app-modules/database/database.module').then(m => m.DatabaseModule)
   },
   {
     path: 'mock',
-    loadChildren: () => import("./modules/mock/mock.module").then(m => m.MockModule)
+    loadChildren: () => import("@app-modules/mock/mock.module").then(m => m.MockModule)
   },
   {
     path: "**",
