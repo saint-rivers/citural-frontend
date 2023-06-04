@@ -9,6 +9,10 @@ export const routes: Routes = [
     loadChildren: () => import('./modules/database/database.module').then(m => m.DatabaseModule)
   },
   {
+    path: 'mock',
+    loadChildren: () => import("./modules/mock/mock.module").then(m => m.MockModule)
+  },
+  {
     path: "**",
     component: NotFoundComponent
   }

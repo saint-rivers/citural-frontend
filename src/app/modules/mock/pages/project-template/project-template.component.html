@@ -1,0 +1,6 @@
+<form (submit)="create($event)">
+  <label for="project-name">Project Name</label>
+  <input id="project-name" type="text" placeholder="name" [formControl]="projectName">
+
+  <input type="submit" value="Create Project">
+</form>
