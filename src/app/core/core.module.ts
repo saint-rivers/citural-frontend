@@ -6,6 +6,8 @@ import { IconModule } from '@coreui/icons-angular';
 import { AuthModule } from "@modules/auth/auth.module";
 import { CoreRoutingModule } from './core-routing.module';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { AppRoutingModule } from '../app-routing.module';
+// import { IonIcon, IonicModule } from '@ionic/angular';
 
 
 @NgModule({
@@ -19,6 +21,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     IconModule,
     AuthModule,
     CoreRoutingModule,
+    AppRoutingModule,
+    // IonicModule
   ],
   exports: [
     SidebarComponent,

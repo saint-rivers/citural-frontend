@@ -5,29 +5,37 @@ import { Store } from '@ngrx/store';
 import { setNavbar } from '../../models/action/navbar.action';
 import { Observable } from 'rxjs';
 import { NavbarLink } from '../../models/navbar-link.model';
-// import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
-import { rubberBandAnimation, collapseAnimation } from 'angular-animations';
+import { moduleName } from '@core/constants/module-name.model';
+// import { rubberBandAnimation, collapseAnimation } from 'angular-animations';
+
+
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css'],
-  animations: [
-    rubberBandAnimation(),
-    collapseAnimation(),
-  ]
+  animations: []
 })
 export class SidebarComponent {
   icons = { cilLan, cilStorage };
   navbarLinks: Observable<NavbarLink[]> = new Observable()
-  constructor(private store: Store<{ links: NavbarLink[] }>) { }
+  activeModule: moduleName | '' = "";
+
+  constructor(private store: Store<{ links: NavbarLink[] }>) {
+    const active = localStorage.getItem('activeModule') as moduleName
+    if (active != null) {
+      this.activeModule = active
+    }
+  }
 
   ngOnInit(): void {
-    this.loadNavbar('tinker')
     this.navbarLinks = this.store.select('links')
   }
 
-  loadNavbar(module: 'tinker' | 'mock') {
+  selectModule(module: moduleName) {
+    this.activeModule = module;
+    localStorage.setItem('activeModule', module);
+
     switch (module) {
       case 'mock': {
         this.dispatchMockNavbar()

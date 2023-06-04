@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DbTemplatesComponent } from './pages/db-templates/db-templates.component';
 import { DatabasesComponent } from './pages/databases/databases.component';
-import { AppRoutingModule } from 'src/app/app-routing.module';
 import { DatabaseRoutingModule } from './database-routing.module';
 
 
@@ -16,7 +15,6 @@ import { DatabaseRoutingModule } from './database-routing.module';
   imports: [
     ReactiveFormsModule,
     CommonModule,
-    // AppRoutingModule,
     DatabaseRoutingModule
   ]
 })
