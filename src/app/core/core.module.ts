@@ -7,7 +7,7 @@ import { AuthModule } from "@modules/auth/auth.module";
 import { CoreRoutingModule } from './core-routing.module';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AppRoutingModule } from '../app-routing.module';
-// import { IonIcon, IonicModule } from '@ionic/angular';
+import { IonIcon, IonicModule } from '@ionic/angular';
 
 
 @NgModule({
@@ -22,7 +22,7 @@ import { AppRoutingModule } from '../app-routing.module';
     AuthModule,
     CoreRoutingModule,
     AppRoutingModule,
-    // IonicModule
+    IonicModule
   ],
   exports: [
     SidebarComponent,

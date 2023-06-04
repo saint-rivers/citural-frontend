@@ -14,6 +14,7 @@ import { DatabaseModule } from '@modules/database/database.module';
 import { CoreModule } from '@core/core.module';
 import { navbarReducer } from './core/reducer/navbar.reducer';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { IonicModule } from '@ionic/angular';
 // import { IonicModule } from '@ionic/angular';
 
 @NgModule({
@@ -32,6 +33,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule, 
     StoreModule.forRoot({}, {}),
     StoreModule.forRoot({ containers: containerReducer, links: navbarReducer }),
+    IonicModule.forRoot(),
     // IonicModule.forRoot(),
   ],
   providers: [{
