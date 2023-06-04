@@ -24,7 +24,7 @@
       "dom"
     ],
     "paths": {
-      "@app-modules/*": [
+      "@modules/*": [
         "src/app/modules/*"
       ],
       "@core/*": [
@@ -34,7 +34,7 @@
         "src/app/shared/*"
       ],
       "@images/*": [
-        "src/app/images/*"
+        "src/assets/images/*"
       ]
     }
   },
