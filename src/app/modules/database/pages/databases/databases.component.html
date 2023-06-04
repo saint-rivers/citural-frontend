@@ -1,20 +1,19 @@
 <div class="flex flex-col">
   <div class="flex flex-row justify-end mb-4">
     <a class="bg-white hover:bg-gray-200 py-1 w-16 text-center rounded-xl drop-shadow"
-      routerLink="/databases/template">New</a>
+      routerLink="/containers/databases/template">New</a>
   </div>
 
-  <table *ngIf="[containers$ | async].length > 0"
-    class="divide-y divide-gray-200 dark:divide-gray-700 drop-shadow w-full">
-    <thead class="bg-gray-50 dark:bg-gray-800 h-12 rounded-xl">
+  <table *ngIf="[containers$ | async].length > 0" class="divide-y divide-gray-200 drop-shadow w-full">
+    <thead class="bg-gray-50 h-12 rounded-xl">
       <tr>
         <th class="text-left pl-10 rounded-tl-xl ">Service</th>
         <th class="text-left w-56">Ports</th>
         <th class="text-left rounded-tr-xl w-56">Actions</th>
       </tr>
     </thead>
-    <tbody class="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
-      <tr *ngFor="let container of (containers$ | async)" class="hover:bg-gray-200 rounded-xl">
+    <tbody class="bg-white divide-y divide-gray-200">
+      <tr *ngFor="let container of (containers$ | async)" class="rounded-xl group">
 
         <td class="flex flex-row items-center py-2 px-4">
           <div *ngIf="container.status.startsWith('Up')" class="active-status"></div>
@@ -35,9 +34,12 @@
           </div>
         </td>
 
-        <td>
-          <button (click)="start(container.containerId)">Start</button>
-          <button (click)="stop(container.containerId)">Stop</button>
+        <td class="">
+          <div class="hidden group-hover:flex">
+            <button *ngIf="container.status.startsWith('Exited')" (click)="start(container.containerId)">Start</button>
+            <button *ngIf="container.status.startsWith('Up')" (click)="start(container.containerId)">Restart</button>
+            <button *ngIf="container.status.startsWith('Up')" (click)="stop(container.containerId)">Stop</button>
+          </div>
         </td>
       </tr>
     </tbody>

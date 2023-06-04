@@ -22,6 +22,7 @@
     "@coreui/icons": "^3.0.1",
     "@coreui/icons-angular": "^4.4.7",
     "@ngrx/store": "^15.4.0",
+    "angular-animations": "^0.11.0",
     "keycloak-angular": "^13.0.0",
     "keycloak-js": "^20.0.5",
     "rxjs": "~7.8.0",

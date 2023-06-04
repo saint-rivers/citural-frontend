@@ -13,6 +13,7 @@ import { AuthModule } from './modules/auth/auth.module';
 import { DatabaseModule } from './modules/database/database.module';
 import { CoreModule } from './core/core.module';
 import { navbarReducer } from './core/reducer/navbar.reducer';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { navbarReducer } from './core/reducer/navbar.reducer';
     AuthModule,
     DatabaseModule,
     CoreModule,
-
+    BrowserAnimationsModule,
     KeycloakAngularModule, ReactiveFormsModule, StoreModule.forRoot({}, {}),
     StoreModule.forRoot({ containers: containerReducer, links: navbarReducer }),
   ],

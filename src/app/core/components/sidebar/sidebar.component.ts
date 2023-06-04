@@ -5,11 +5,17 @@ import { Store } from '@ngrx/store';
 import { setNavbar } from '../../models/action/navbar.action';
 import { Observable } from 'rxjs';
 import { NavbarLink } from '../../models/navbar-link.model';
+// import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
+import { rubberBandAnimation, collapseAnimation } from 'angular-animations';
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css']
+  styleUrls: ['./sidebar.component.css'],
+  animations: [
+    rubberBandAnimation(),
+    collapseAnimation(),
+  ]
 })
 export class SidebarComponent {
   icons = { cilLan, cilStorage };
@@ -17,7 +23,7 @@ export class SidebarComponent {
   constructor(private store: Store<{ links: NavbarLink[] }>) { }
 
   ngOnInit(): void {
-    // this.loadNavbar()
+    this.loadNavbar('tinker')
     this.navbarLinks = this.store.select('links')
   }
 

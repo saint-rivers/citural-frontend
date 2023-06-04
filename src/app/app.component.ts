@@ -9,29 +9,29 @@ import { NavbarLink } from './core/models/navbar-link.model';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   // title = 'citural-frontend';
-  navbarLinks: Observable<NavbarLink[]> | null = null
+  // navbarLinks: Observable<NavbarLink[]> | null = null
 
-  constructor(private store: Store<{ links: NavbarLink[] }>) { }
+  // constructor(private store: Store<{ links: NavbarLink[] }>) { }
 
-  ngOnInit(): void {
-    this.loadNavbar()
-    this.navbarLinks = this.store.select('links')
-  }
+  // ngOnInit(): void {
+  //   this.loadNavbar()
+  //   this.navbarLinks = this.store.select('links')
+  // }
 
-  loadNavbar() {
-    this.store.dispatch(setNavbar({
-      links: [
-        {
-          path: '/containers/databases/listing',
-          name: 'Databases'
-        },
-        {
-          path: '/containers/api/listing',
-          name: 'API'
-        },
-      ]
-    }))
-  }
+  // loadNavbar() {
+  //   this.store.dispatch(setNavbar({
+  //     links: [
+  //       {
+  //         path: '/containers/databases/listing',
+  //         name: 'Databases'
+  //       },
+  //       {
+  //         path: '/containers/api/listing',
+  //         name: 'API'
+  //       },
+  //     ]
+  //   }))
+  // }
 }
