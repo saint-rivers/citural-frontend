@@ -1,11 +1,44 @@
-<div class="px-4 py-4 bg-white m-4 rounded-xl flex flex-row gap-2">
-
-  <div *ngIf="links$ != null && [links$ | async].length > 0" class="w-full">
-    <div *ngFor="let data of [links$ | async]" class="flex flex-row gap-2">
-      <a *ngFor="let l of data.links" [routerLink]="[l.path]">
-        {{l.name}}
-      </a>
+<div class="flex flex-col px-4 py-4">
+  <div class="flex flex-row justify-between mb-3">
+    <div
+      class="flex items-center gap-2 text-gray-700 bg-gray-200 rounded-xl px-4 py-2"
+    >
+      <ion-icon name="home-outline"></ion-icon>
+      <ion-icon name="caret-forward-outline"></ion-icon>
+      <span class="align-baseline mt-1">Container Management</span>
+    </div>
+    <div class="flex gap-2">
+      <div
+        class="flex flex-row items-center navitem cursor-pointer active-link"
+      >
+        <ion-icon name="notifications-outline"></ion-icon>
+      </div>
+      <div
+        class="flex flex-row items-center navitem cursor-pointer active-link"
+      >
+        <ion-icon name="settings-outline"></ion-icon>
+      </div>
+      <div
+        class="group flex flex-row items-center navitem cursor-pointer active-link"
+      >
+        <img
+          class="group-hover:shadow w-6 h-6 object-cover mr-2 rounded-full"
+          src="https://cdn.dribbble.com/users/2313212/screenshots/11256142/media/27b57b3ee2ac221dc8c616d02161d96b.jpg?compress=1&resize=400x300&vertical=top"
+          alt=""
+        />
+        <span class="mx-2">Profile</span>
+        <ion-icon name="caret-down-outline"></ion-icon>
+      </div>
     </div>
   </div>
 
+  <div class="rounded-xl flex flex-row gap-2">
+    <div *ngIf="links$ != null && [links$ | async].length > 0" class="w-full">
+      <div *ngFor="let data of [links$ | async]" class="flex flex-row gap-2">
+        <a *ngFor="let l of data.links" [routerLink]="[l.path]">
+          {{ l.name }}
+        </a>
+      </div>
+    </div>
+  </div>
 </div>
