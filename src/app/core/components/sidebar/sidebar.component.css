@@ -1,10 +1,33 @@
+.link-container {
+  @apply flex flex-col;
+}
+
 .link-container > button {
-  @apply py-2 px-4 rounded-lg drop-shadow-sm transition ease-in-out delay-100;
   @apply flex flex-row items-center;
+  @apply rounded-lg drop-shadow-sm transition ease-in-out delay-100;
+  @apply text-center mx-auto p-2 h-12 w-full;
+  @apply lg:py-2 lg:px-4 lg:ml-0;
+}
+
+.link-container > button > ion-icon {
+  @apply w-5 h-5 mx-auto;
+  @apply lg:ml-0 lg:flex-shrink;
 }
 
 .link-container > button > span {
-  @apply ml-2;
-  @apply text-center;
+  @apply ml-2 flex-grow text-left mt-1;
+  @apply lg:inline-block hidden;
 }
 
+
+
+
+
+
+.link-container > .sm-nav-btn {
+  @apply lg:inline-block hidden
+}
+
+.link-container > .lg-nav-btn {
+
+}
