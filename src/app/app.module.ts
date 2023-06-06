@@ -12,9 +12,10 @@ import { initializeKeycloak } from './config/keycloak';
 import { AuthModule } from '@modules/auth/auth.module';
 import { DatabaseModule } from '@modules/database/database.module';
 import { CoreModule } from '@core/core.module';
-import { navbarReducer } from './core/reducer/navbar.reducer';
+import { navbarReducer } from './core/reducer/navbar/navbar.reducer';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IonicModule } from '@ionic/angular';
+import { sidebarReducer } from '@core/reducer/slice/sidebar.reducer';
 // import { IonicModule } from '@ionic/angular';
 
 @NgModule({
@@ -29,10 +30,10 @@ import { IonicModule } from '@ionic/angular';
     DatabaseModule,
     CoreModule,
     BrowserAnimationsModule,
-    KeycloakAngularModule, 
-    ReactiveFormsModule, 
+    KeycloakAngularModule,
+    ReactiveFormsModule,
     StoreModule.forRoot({}, {}),
-    StoreModule.forRoot({ containers: containerReducer, links: navbarReducer }),
+    StoreModule.forRoot({ containers: containerReducer, links: navbarReducer, sidebarStatus: sidebarReducer }),
     IonicModule.forRoot(),
     // IonicModule.forRoot(),
   ],

@@ -8,7 +8,9 @@
       (click)="selectModule('tinker')"
       [ngClass]="{
         'active-link': activeModule === 'tinker',
-        'inactive-link': activeModule !== 'tinker'
+        'inactive-link': activeModule !== 'tinker',
+        'lg-side-navlink': isSidebarMinimized === false,
+        'sm-side-navlink': isSidebarMinimized === true,
       }"
       #containerLink
     >
@@ -20,7 +22,9 @@
       (click)="selectModule('mock')"
       [ngClass]="{
         'active-link': activeModule === 'mock',
-        'inactive-link': activeModule !== 'mock'
+        'inactive-link': activeModule !== 'mock',
+        'lg-side-navlink': isSidebarMinimized === false,
+        'sm-side-navlink': isSidebarMinimized === true,
       }"
     >
       <ion-icon name="code-working-outline"></ion-icon>
@@ -32,12 +36,24 @@
       (click)="selectModule('notes')"
       [ngClass]="{
         'active-link': activeModule === 'notes',
-        'inactive-link': activeModule !== 'notes'
+        'inactive-link': activeModule !== 'notes',
+        'lg-side-navlink': isSidebarMinimized === false,
+        'sm-side-navlink': isSidebarMinimized === true,
       }"
     >
       <ion-icon name="clipboard-outline"></ion-icon>
       <span>Notes</span>
     </button>
   </div>
-  <app-login-button></app-login-button>
+
+  <div class="flex flex-col">
+    <button
+      class="text-left cursor-pointer hover:text-blue-500"
+      (click)="toggleSidebarMinimized()"
+    >
+      <span *ngIf="isSidebarMinimized">>></span>
+      <span *ngIf="!isSidebarMinimized"><<</span>
+    </button>
+    <app-login-button></app-login-button>
+  </div>
 </div>

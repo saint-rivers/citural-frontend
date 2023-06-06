@@ -2,12 +2,11 @@ import { Component } from '@angular/core';
 
 import { cilStorage, cilLan } from '@coreui/icons';
 import { Store } from '@ngrx/store';
-import { setNavbar } from '../../models/action/navbar.action';
+import { setNavbar } from '../../reducer/navbar/navbar.action';
 import { Observable } from 'rxjs';
 import { NavbarLink } from '../../models/navbar-link.model';
 import { moduleName } from '@core/constants/module-name.model';
-// import { rubberBandAnimation, collapseAnimation } from 'angular-animations';
-
+import { setIsMinimized } from '@core/reducer/slice/sidebar.action';
 
 
 @Component({
@@ -21,7 +20,7 @@ export class SidebarComponent {
   navbarLinks: Observable<NavbarLink[]> = new Observable()
   activeModule: moduleName | '' = "";
 
-  constructor(private store: Store<{ links: NavbarLink[] }>) {
+  constructor(private store: Store<{ links: NavbarLink[], sidebarStatus: { isSidebarMinimized: boolean } }>) {
     const active = localStorage.getItem('activeModule') as moduleName
     if (active != null) {
       this.activeModule = active
@@ -30,6 +29,9 @@ export class SidebarComponent {
 
   ngOnInit(): void {
     this.navbarLinks = this.store.select('links')
+    this.store.select('sidebarStatus').subscribe(res => {
+      this.isSidebarMinimized = res.isSidebarMinimized
+    })
   }
 
   selectModule(module: moduleName) {
@@ -72,5 +74,11 @@ export class SidebarComponent {
         },
       ]
     }))
+  }
+
+  isSidebarMinimized: boolean = false;
+  toggleSidebarMinimized() {
+    this.isSidebarMinimized = !this.isSidebarMinimized;
+    this.store.dispatch(setIsMinimized({ isMinimized: this.isSidebarMinimized }))
   }
 }

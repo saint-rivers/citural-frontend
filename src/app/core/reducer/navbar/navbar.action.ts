@@ -1,5 +1,5 @@
 import { createAction, props } from "@ngrx/store";
-import { NavbarLink } from "../navbar-link.model";
+import { NavbarLink } from "../../models/navbar-link.model";
 
 
 export const setNavbar = createAction(

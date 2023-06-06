@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store";
-import { setNavbar } from "../models/action/navbar.action";
-import { NavbarLink } from "../models/navbar-link.model";
+import { setNavbar } from "./navbar.action";
+import { NavbarLink } from "../../models/navbar-link.model";
 
 
 export const initialState: { links: NavbarLink[] } = {

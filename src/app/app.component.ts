@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { setNavbar } from './core/models/action/navbar.action';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { NavbarLink } from './core/models/navbar-link.model';
+
+type sidebarStatus = { isSidebarMinimized: boolean }
 
 @Component({
   selector: 'app-root',
@@ -11,27 +11,16 @@ import { NavbarLink } from './core/models/navbar-link.model';
 })
 export class AppComponent {
   title = 'citural-frontend';
-  // navbarLinks: Observable<NavbarLink[]> | null = null
 
-  // constructor(private store: Store<{ links: NavbarLink[] }>) { }
+  // isMinimized: Observable<sidebarStatus> = this.store.select('sidebarStatus')
+  isMinimized = false;
 
-  // ngOnInit(): void {
-  //   this.loadNavbar()
-  //   this.navbarLinks = this.store.select('links')
-  // }
+  constructor(private store: Store<{ sidebarStatus: sidebarStatus }>) {
+    this.store.select('sidebarStatus').subscribe(res => {
+      this.isMinimized = res.isSidebarMinimized
+    })
+  }
 
-  // loadNavbar() {
-  //   this.store.dispatch(setNavbar({
-  //     links: [
-  //       {
-  //         path: '/containers/databases/listing',
-  //         name: 'Databases'
-  //       },
-  //       {
-  //         path: '/containers/api/listing',
-  //         name: 'API'
-  //       },
-  //     ]
-  //   }))
-  // }
+
+
 }
