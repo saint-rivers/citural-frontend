@@ -15,10 +15,11 @@ input[type="submit"] {
   @apply cursor-pointer;
 }
 
-.active-link {
+.active-btn-color {
   @apply text-blue-600 drop-shadow-sm transition-shadow ease-in-out hover:shadow  hover:text-blue-400 bg-white;
 }
 
-.inactive-link {
+.inactive-btn-color {
   @apply text-gray-800 hover:bg-gray-200;
 }
+
