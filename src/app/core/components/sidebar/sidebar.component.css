@@ -37,3 +37,13 @@
   @apply ml-2 flex-grow text-left mt-1;
   @apply hidden;
 }
+
+/* Active/Inactive Styles */
+
+.active {
+  @apply text-blue-600 drop-shadow-sm transition-shadow ease-in-out  hover:text-blue-500 bg-gray-100;
+}
+
+.inactive {
+  @apply text-gray-800 hover:bg-gray-100 hover:text-blue-500;
+}

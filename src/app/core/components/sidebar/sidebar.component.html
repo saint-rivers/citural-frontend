@@ -1,4 +1,6 @@
-<div class="flex flex-col justify-between relative min-h-full p-4">
+<div
+  class="flex flex-col justify-between relative min-h-full p-4 bg-white shadow-lg"
+>
   <div class="link-container">
     <div
       class="bg-gray-400 w-full h-24 mb-4 rounded-2xl border-8 border-gray-300"
@@ -7,8 +9,8 @@
       routerLink="/containers/databases/listing"
       (click)="selectModule('tinker')"
       [ngClass]="{
-        'active-btn-color': activeModule === 'tinker',
-        'inactive-btn-color': activeModule !== 'tinker',
+        'active': activeModule === 'tinker',
+        'inactive': activeModule !== 'tinker',
         'lg-side-navlink': isSidebarMinimized === false,
         'sm-side-navlink': isSidebarMinimized === true,
       }"
@@ -21,8 +23,8 @@
       routerLink="/mock/projects"
       (click)="selectModule('mock')"
       [ngClass]="{
-        'active-btn-color': activeModule === 'mock',
-        'inactive-btn-color': activeModule !== 'mock',
+        'active': activeModule === 'mock',
+        'inactive': activeModule !== 'mock',
         'lg-side-navlink': isSidebarMinimized === false,
         'sm-side-navlink': isSidebarMinimized === true,
       }"
@@ -35,8 +37,8 @@
       routerLink="/notes"
       (click)="selectModule('notes')"
       [ngClass]="{
-        'active-btn-color': activeModule === 'notes',
-        'inactive-btn-color': activeModule !== 'notes',
+        'active': activeModule === 'notes',
+        'inactive': activeModule !== 'notes',
         'lg-side-navlink': isSidebarMinimized === false,
         'sm-side-navlink': isSidebarMinimized === true,
       }"
