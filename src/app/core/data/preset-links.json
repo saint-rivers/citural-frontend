@@ -1,0 +1,21 @@
+{
+    "containerLinks": [
+        {
+            "path": "/containers/databases/listing",
+            "name": "Databases",
+            "iconImage": "server-outline"
+        },
+        {
+            "path": "/containers/api/listing",
+            "name": "API",
+            "iconImage": "hardware-chip-outline"
+        }
+    ],
+    "mockLinks": [
+        {
+            "path": "/mock/projects",
+            "name": "Projects",
+            "iconImage": "albums-outline"
+        }
+    ]
+}

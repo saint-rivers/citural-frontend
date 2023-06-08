@@ -34,10 +34,20 @@
 
   <div class="rounded-xl flex flex-row gap-2">
     <div *ngIf="links$ != null && [links$ | async].length > 0" class="w-full">
-      <div *ngFor="let data of [links$ | async]" class="flex flex-row gap-2">
-        <a *ngFor="let l of data.links" [routerLink]="[l.path]">
-          {{ l.name }}
-        </a>
+      <div *ngFor="let data of [links$ | async]" class="flex flex-row gap-4">
+        <div
+          class="nav-card overflow-hidden"
+          *ngFor="let l of data.links"
+          [routerLink]="[l.path]"
+        >
+          <p>{{ l.name }}</p>
+          <div class="flex-grow -z-10">
+            <ion-icon
+              [name]="l.iconImage"
+              class="opacity-10 w-32 h-32 relative left-12 object-cover"
+            ></ion-icon>
+          </div>
+        </div>
       </div>
     </div>
   </div>

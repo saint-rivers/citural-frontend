@@ -1,19 +1,11 @@
 import { createReducer, on } from "@ngrx/store";
 import { setNavbar } from "./navbar.action";
 import { NavbarLink } from "../../models/navbar-link.model";
+import linkData from "../../data/preset-links.json"
 
 
 export const initialState: { links: NavbarLink[] } = {
-    links: [
-        {
-            path: '/containers/databases/listing',
-            name: 'Databases'
-        },
-        {
-            path: '/containers/api/listing',
-            name: 'API'
-        },
-    ]
+    links: linkData.containerLinks
 }
 
 

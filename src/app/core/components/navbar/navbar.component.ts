@@ -15,8 +15,7 @@ export class NavbarComponent implements OnInit {
   links$: Observable<any> = this.store.select('links')
 
   ngOnInit(): void {
-    // this.links$ = this.store.select('links')
-    // console.log(this.links$);
   }
 
+  
 }

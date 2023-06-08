@@ -1,3 +1,5 @@
 export interface NavbarLink {
-    path: string; name: string;
+    path: string;
+    name: string;
+    iconImage: string;
 }

@@ -8,6 +8,8 @@ import { NavbarLink } from '../../models/navbar-link.model';
 import { moduleName } from '@core/constants/module-name.model';
 import { setIsMinimized } from '@core/reducer/slice/sidebar.action';
 
+import dataLinks from "../../data/preset-links.json"
+
 
 @Component({
   selector: 'app-sidebar',
@@ -52,27 +54,13 @@ export class SidebarComponent {
 
   dispatchMockNavbar() {
     this.store.dispatch(setNavbar({
-      links: [
-        {
-          path: '/mock/projects',
-          name: 'Projects'
-        }
-      ]
+      links: dataLinks.mockLinks
     }))
   }
 
   dispatchTinkerNavbar() {
     this.store.dispatch(setNavbar({
-      links: [
-        {
-          path: '/containers/databases/listing',
-          name: 'Databases'
-        },
-        {
-          path: '/containers/api/listing',
-          name: 'API'
-        },
-      ]
+      links: dataLinks.containerLinks
     }))
   }
 
