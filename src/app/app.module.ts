@@ -16,7 +16,6 @@ import { navbarReducer } from './core/reducer/navbar/navbar.reducer';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IonicModule } from '@ionic/angular';
 import { sidebarReducer } from '@core/reducer/slice/sidebar.reducer';
-// import { IonicModule } from '@ionic/angular';
 
 @NgModule({
   declarations: [
@@ -35,7 +34,6 @@ import { sidebarReducer } from '@core/reducer/slice/sidebar.reducer';
     StoreModule.forRoot({}, {}),
     StoreModule.forRoot({ containers: containerReducer, links: navbarReducer, sidebarStatus: sidebarReducer }),
     IonicModule.forRoot(),
-    // IonicModule.forRoot(),
   ],
   providers: [{
     provide: APP_INITIALIZER,

@@ -26,6 +26,17 @@ export class DatabasesComponent {
     })
   }
 
+  toggleContainer(id: string, isUp: boolean): () => void {
+    return () => {
+      if (isUp) {
+        // todo: ask if they're sure they want to stop 
+        this.stop(id);
+      } else {
+        this.start(id)
+      }
+    }
+  }
+
 
   start(id: string) {
     if (id !== null && id !== "") {

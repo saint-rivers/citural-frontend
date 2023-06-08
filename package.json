@@ -28,6 +28,7 @@
     "ionicons": "^7.1.2",
     "keycloak-angular": "^13.0.0",
     "keycloak-js": "^20.0.5",
+    "ngx-toggle-switch": "^2.0.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
@@ -36,6 +37,7 @@
     "@angular-devkit/build-angular": "^15.1.6",
     "@angular/cli": "~15.1.6",
     "@angular/compiler-cli": "^15.1.0",
+    "@ionic/angular-toolkit": "latest",
     "@types/jasmine": "~4.3.0",
     "autoprefixer": "^10.4.14",
     "jasmine-core": "~4.5.0",
@@ -46,7 +48,6 @@
     "karma-jasmine-html-reporter": "~2.0.0",
     "postcss": "^8.4.23",
     "tailwindcss": "^3.3.2",
-    "typescript": "~4.9.4",
-    "@ionic/angular-toolkit": "latest"
+    "typescript": "~4.9.4"
   }
 }

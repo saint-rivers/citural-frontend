@@ -8,25 +8,28 @@ import { CoreRoutingModule } from './core-routing.module';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { IonIcon, IonicModule } from '@ionic/angular';
+import { ToggleSwitchComponent } from './components/toggle-switch/toggle-switch.component';
 
 
 @NgModule({
   declarations: [
     SidebarComponent,
     NavbarComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ToggleSwitchComponent
   ],
   imports: [
     CommonModule,
     IconModule,
     AuthModule,
     CoreRoutingModule,
-    AppRoutingModule,
+    // AppRoutingModule,
     IonicModule
   ],
   exports: [
     SidebarComponent,
-    NavbarComponent
+    NavbarComponent,
+    ToggleSwitchComponent
   ]
 })
 export class CoreModule { }

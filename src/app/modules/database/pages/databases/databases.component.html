@@ -1,44 +1,82 @@
 <div class="flex flex-col">
   <div class="flex flex-row justify-end mb-4">
-    <a class="bg-white hover:bg-gray-200 py-1 w-16 text-center rounded-xl drop-shadow"
-      routerLink="/containers/databases/template">New</a>
+    <a
+      class="bg-white hover:bg-gray-200 py-1 w-16 text-center rounded-xl drop-shadow"
+      routerLink="/containers/databases/template"
+      >New</a
+    >
   </div>
 
-  <table *ngIf="[containers$ | async].length > 0" class="divide-y divide-gray-200 drop-shadow w-full">
-    <thead class="bg-gray-50 h-12 rounded-xl">
+  <table
+    *ngIf="[containers$ | async].length > 0"
+    class="divide-y divide-gray-200 drop-shadow w-full"
+  >
+    <thead class="h-12">
       <tr>
-        <th class="text-left pl-10 rounded-tl-xl ">Service</th>
+        <th class="text-left pl-10 rounded-tl-xl">Service</th>
         <th class="text-left w-56">Ports</th>
         <th class="text-left rounded-tr-xl w-56">Actions</th>
       </tr>
     </thead>
     <tbody class="bg-white divide-y divide-gray-200">
-      <tr *ngFor="let container of (containers$ | async)" class="rounded-xl group">
-
+      <tr
+        *ngFor="let container of containers$ | async"
+        class="rounded-xl group h-14 even:bg-gray-50"
+      >
         <td class="flex flex-row items-center py-2 px-4">
-          <div *ngIf="container.status.startsWith('Up')" class="active-status"></div>
-          <div *ngIf="container.status.startsWith('Exited')" class="inactive-status"></div>
-          <p class="ml-2">{{container.containerName}}</p>
+          <app-toggle-switch
+            [isOn]="container.status.startsWith('Up')"
+            [onChange]="
+              toggleContainer(
+                container.containerId,
+                container.status.startsWith('Up')
+              )
+            "
+          ></app-toggle-switch>
+
+          <p class="ml-2">{{ container.containerName }}</p>
         </td>
 
         <td>
           <div *ngIf="container.ports !== null">
-            <p *ngFor="let p of container.ports; let i = index" class="inline" [attr.data-index]="i">
-              <span (click)="copyContent(p.PublicPort)"
-                class="cursor-pointer hover:text-green-400">{{p.PublicPort}}</span>
+            <p
+              *ngFor="let p of container.ports; let i = index"
+              class="inline"
+              [attr.data-index]="i"
+            >
+              <span
+                (click)="copyContent(p.PublicPort)"
+                class="cursor-pointer hover:text-green-400"
+                >{{ p.PublicPort }}</span
+              >
               <span *ngIf="i !== container.ports.length - 1">, </span>
             </p>
           </div>
           <div *ngIf="container.ports.length === 0">
-            <p class="text-gray-500"> nil </p>
+            <p class="text-gray-500">nil</p>
           </div>
         </td>
 
         <td class="">
           <div class="hidden group-hover:flex">
-            <button *ngIf="container.status.startsWith('Exited')" (click)="start(container.containerId)">Start</button>
-            <button *ngIf="container.status.startsWith('Up')" (click)="start(container.containerId)">Restart</button>
-            <button *ngIf="container.status.startsWith('Up')" (click)="stop(container.containerId)">Stop</button>
+            <button
+              *ngIf="container.status.startsWith('Exited')"
+              (click)="start(container.containerId)"
+            >
+              Start
+            </button>
+            <button
+              *ngIf="container.status.startsWith('Up')"
+              (click)="start(container.containerId)"
+            >
+              Restart
+            </button>
+            <button
+              *ngIf="container.status.startsWith('Up')"
+              (click)="stop(container.containerId)"
+            >
+              Stop
+            </button>
           </div>
         </td>
       </tr>

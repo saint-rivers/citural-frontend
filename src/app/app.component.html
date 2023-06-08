@@ -2,7 +2,7 @@
   <div [ngClass]="{ 'lg:w-1/6 ': !isMinimized, 'w-[80px]': isMinimized }">
     <app-sidebar></app-sidebar>
   </div>
-  <div class="flex flex-col w-5/6">
+  <div class="flex flex-col w-5/6 h-full overflow-y-scroll">
     <app-navbar></app-navbar>
     <div class="m-4">
       <router-outlet></router-outlet>

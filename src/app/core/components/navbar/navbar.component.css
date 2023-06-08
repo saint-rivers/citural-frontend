@@ -2,10 +2,11 @@
   @apply border border-blue-300 px-2 py-1 rounded-lg text-center;
   @apply hover:bg-white text-blue-500;
 }
+ */
 
 .navitem {
   @apply px-4 py-2 rounded-xl;
-} */
+}
 
 .nav-card {
   @apply bg-white flex flex-col h-32 w-40 rounded-lg p-3 font-bold drop-shadow;
