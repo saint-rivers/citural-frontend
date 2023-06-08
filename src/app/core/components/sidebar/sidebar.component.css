@@ -9,6 +9,7 @@
   @apply rounded-lg drop-shadow-sm transition ease-in-out delay-100;
   @apply text-center mx-auto p-2 h-12 w-full;
   @apply lg:py-2 lg:px-4 lg:ml-0;
+  @apply mb-1;
 }
 
 .link-container > .lg-side-navlink > ion-icon {
@@ -25,7 +26,7 @@
 
 .link-container > .sm-side-navlink {
   @apply flex flex-row items-center;
-  @apply rounded-lg drop-shadow-sm transition ease-in-out delay-100;
+  @apply rounded-lg drop-shadow-sm transition ease-in-out;
   @apply text-center mx-auto p-2 h-12 w-full;
 }
 
@@ -45,5 +46,11 @@
 }
 
 .inactive {
-  @apply text-gray-800 hover:bg-gray-100 hover:text-blue-500;
+  @apply text-gray-700 hover:bg-gray-50 hover:text-blue-500;
+}
+
+/* Hover tag */
+
+.hover-tag {
+  /* @apply bg-white relative p-1 -right-12; */
 }
